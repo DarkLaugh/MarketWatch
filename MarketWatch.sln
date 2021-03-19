@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C1447A11-2B37-4E31-B4DF-A0223379CD7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketWatch.Domain", "src\MarketWatch.Domain\MarketWatch.Domain.csproj", "{508F4447-7AC2-41CA-9C1F-D765447FF4CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{508F4447-7AC2-41CA-9C1F-D765447FF4CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508F4447-7AC2-41CA-9C1F-D765447FF4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508F4447-7AC2-41CA-9C1F-D765447FF4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508F4447-7AC2-41CA-9C1F-D765447FF4CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{508F4447-7AC2-41CA-9C1F-D765447FF4CC} = {C1447A11-2B37-4E31-B4DF-A0223379CD7B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {695EAB69-5A96-4CFD-8445-CDAFED01FF74}
+	EndGlobalSection
+EndGlobal
