@@ -9,5 +9,10 @@
     <Folder Include="Hubs\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MarketWatch.Application\MarketWatch.Application.csproj" />
+    <ProjectReference Include="..\MarketWatch.Infrastructure\MarketWatch.Infrastructure.csproj" />
+  </ItemGroup>
+
 
 </Project>

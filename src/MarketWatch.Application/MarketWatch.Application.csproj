@@ -5,9 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="DTOs\" />
-    <Folder Include="Interfaces\" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MarketWatch.Domain\MarketWatch.Domain.csproj" />
   </ItemGroup>
 
 </Project>
