@@ -2,7 +2,7 @@
 
 namespace MarketWatch.Application.DTOs.Requests
 {
-    public class CommentRequest
+    public class CommentRequestModel
     {
         public Guid StockId { get; set; }
         public string CommentContent { get; set; }

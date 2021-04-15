@@ -2,7 +2,7 @@
 
 namespace MarketWatch.Application.DTOs.Responses
 {
-    public class CommentResponse
+    public class CommentResponseModel
     {
         public Guid Id { get; set; }
         public Guid StockId { get; set; }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MarketWatch.Application.DTOs.Responses
 {
-    public class StockResponse
+    public class StockResponseModel
     {
         public Guid Id { get; set; }
         public string ClassName { get; set; }
@@ -15,6 +15,6 @@ namespace MarketWatch.Application.DTOs.Responses
         public bool Shortable { get; set; }
         public bool EasyToBorrow { get; set; }
         public decimal Price { get; set; }
-        public List<CommentResponse> Comments { get; set; }
+        public List<CommentResponseModel> Comments { get; set; }
     }
 }

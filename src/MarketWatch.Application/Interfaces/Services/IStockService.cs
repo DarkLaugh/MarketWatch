@@ -8,9 +8,9 @@ namespace MarketWatch.Application.Interfaces.Services
 {
     public interface IStockService
     {
-        Task<IEnumerable<StockResponse>> GetAllStocksAsync();
+        Task<IEnumerable<StockResponseModel>> GetAllStocksAsync();
         Task<string[]> GetStockSymbols();
-        Task<StockResponse> GetStockByIdAsync(Guid stockId);
-        Task<CommentResponse> AddCommentToStock(CommentRequest commentRequest);
+        Task<StockResponseModel> GetStockByIdAsync(Guid stockId);
+        Task<CommentResponseModel> AddCommentToStock(CommentRequestModel commentRequest);
     }
 }

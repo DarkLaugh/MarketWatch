@@ -5,7 +5,7 @@ namespace MarketWatch.Application.Interfaces.Clients
 {
     public interface IStockClient
     {
-        Task StockUpdate(StockChangedResponse data);
-        Task AddedComment(CommentResponse comment);
+        Task StockUpdate(StockChangedResponseModel data);
+        Task AddedComment(CommentResponseModel comment);
     }
 }

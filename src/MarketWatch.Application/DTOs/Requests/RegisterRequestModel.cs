@@ -2,7 +2,7 @@
 
 namespace MarketWatch.Application.DTOs.Requests
 {
-    public class RegisterRequest
+    public class RegisterRequestModel
     {
         [Required]
         [EmailAddress]

@@ -5,7 +5,7 @@ namespace MarketWatch.Application.Interfaces.Services
 {
     public interface IAuthService
     {
-        Task<string> Register(RegisterRequest request);
-        Task<string> Login(LoginRequest request);
+        Task<string> Register(RegisterRequestModel request);
+        Task<string> Login(LoginRequestModel request);
     }
 }

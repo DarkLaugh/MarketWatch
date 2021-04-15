@@ -9,9 +9,9 @@ namespace MarketWatch.Application.Common.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<Stock, StockResponse>().ReverseMap();
-            CreateMap<Comment, CommentResponse>().ReverseMap();
-            CreateMap<CommentRequest, Comment>().ReverseMap();
+            CreateMap<Stock, StockResponseModel>().ReverseMap();
+            CreateMap<Comment, CommentResponseModel>().ReverseMap();
+            CreateMap<CommentRequestModel, Comment>().ReverseMap();
         }
     }
 }
