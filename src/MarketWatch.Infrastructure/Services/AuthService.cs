@@ -2,6 +2,7 @@
 using MarketWatch.Application.Interfaces.Services;
 using MarketWatch.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,12 @@ namespace MarketWatch.Infrastructure.Services
     public class AuthService : IAuthService
     {
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IConfiguration configuration;
 
-        public AuthService(UserManager<ApplicationUser> userManager)
+        public AuthService(UserManager<ApplicationUser> userManager, IConfiguration configuration)
         {
             this.userManager = userManager;
+            this.configuration = configuration;
         }
 
         public async Task<string> Register(RegisterRequestModel inputModel)
@@ -63,14 +66,14 @@ namespace MarketWatch.Infrastructure.Services
 
         private async Task<string> GetToken(ApplicationUser user)
         {
-            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("0123456789ImportantSecret"));
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetSection("JWT").GetValue<string>("Secret")));
             var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256Signature);
 
             var claims = await GetUserClaims(user);
 
             var tokenOptions = new JwtSecurityToken(
-                issuer: "https://localhost:5000",
-                audience: "http://localhost:4200",
+                issuer: configuration.GetSection("JWT").GetValue<string>("Issuer"),
+                audience: configuration.GetSection("JWT").GetValue<string>("Audience"),
                 claims: claims,
                 expires: DateTime.Now.AddHours(12),
                 signingCredentials: signingCredentials

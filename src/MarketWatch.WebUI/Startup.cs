@@ -48,7 +48,7 @@ namespace MarketWatch.WebUI
                         ValidateAudience = false,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = false,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("0123456789ImportantSecret"))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("JWT").GetValue<string>("Secret")))
                     };
 
                     options.Events = new JwtBearerEvents
