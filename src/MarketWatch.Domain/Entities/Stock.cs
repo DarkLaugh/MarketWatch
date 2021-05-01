@@ -16,5 +16,24 @@ namespace MarketWatch.Domain.Entities
         public bool EasyToBorrow { get; set; }
         public decimal Price { get; set; }
         public List<Comment> Comments { get; set; }
+
+        public Stock(string className, string exchange, string symbol, string status,
+            bool tradable, bool marginable, bool shortable, bool easyToBorrow, decimal price)
+        {
+            ClassName = className;
+            Exchange = exchange;
+            Symbol = symbol;
+            Status = status;
+            Tradable = tradable;
+            Marginable = marginable;
+            Shortable = shortable;
+            EasyToBorrow = easyToBorrow;
+            Price = price;
+        }
+
+        public Stock()
+        {
+
+        }
     }
 }
