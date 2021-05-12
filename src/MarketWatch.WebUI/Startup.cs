@@ -29,6 +29,17 @@ namespace MarketWatch.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(Configuration.GetSection("CORS").GetSection("DevPolicy").GetValue<string>("Name"), builder =>
+                {
+                    builder.WithOrigins(Configuration.GetSection("CORS").GetSection("DevPolicy").GetValue<string>("OriginURL"));
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                    builder.AllowCredentials();
+                });
+            });
+
             services
                 .AddIdentity<ApplicationUser, IdentityRole<int>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -70,6 +81,7 @@ namespace MarketWatch.WebUI
                     };
                 });
 
+            services.AddCors();
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.AddHostedService<MigratorService>();
@@ -89,6 +101,8 @@ namespace MarketWatch.WebUI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("DevPolicy");
 
             app.UseAuthentication();
             app.UseAuthorization();
