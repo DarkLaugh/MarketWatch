@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace MarketWatch.WebUI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     [Authorize]
-    public class StockController : ControllerBase
+    public class StockController : BaseController
     {
         private readonly IStockService _stockService;
 

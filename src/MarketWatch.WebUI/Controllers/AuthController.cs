@@ -5,21 +5,19 @@ using System.Threading.Tasks;
 
 namespace MarketWatch.WebUI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : BaseController
     {
-        private readonly IAuthService authService;
+        private readonly IAuthService _authService;
 
         public AuthController(IAuthService authService)
         {
-            this.authService = authService;
+            this._authService = authService;
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequestModel request)
         {
-            string token = await authService.Register(request);
+            string token = await _authService.Register(request);
 
             return Ok(new { Token = token });
         }
@@ -27,7 +25,7 @@ namespace MarketWatch.WebUI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequestModel request)
         {
-            string token = await authService.Login(request);
+            string token = await _authService.Login(request);
 
             return Ok(new { Token = token });
         }
