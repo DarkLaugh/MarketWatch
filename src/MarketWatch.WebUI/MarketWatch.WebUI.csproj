@@ -17,5 +17,9 @@
     <ProjectReference Include="..\MarketWatch.Infrastructure\MarketWatch.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Client\" />
+  </ItemGroup>
+
 
 </Project>

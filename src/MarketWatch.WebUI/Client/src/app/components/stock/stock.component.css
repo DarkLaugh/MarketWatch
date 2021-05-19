@@ -1,0 +1,3 @@
+#stock-details tr td:first-child {
+    border-right: 1px solid #404040 !important;
+}
