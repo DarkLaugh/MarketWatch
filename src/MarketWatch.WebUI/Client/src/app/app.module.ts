@@ -23,6 +23,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { JwtModule } from '@auth0/angular-jwt';
+import { AnonymousGuard } from './services/auth/anonymous-guard.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { JwtModule } from '@auth0/angular-jwt';
   providers: [
     AuthService,
     AuthGuard,
+    AnonymousGuard,
     StockRestService,
     StockRealTimeService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
