@@ -1,0 +1,57 @@
+<div *ngIf="stock" class="p-fluid p-grid">
+    <div class="p-col-6 p-offset-3">
+        <h1 class="p-text-center">{{ stock.symbol }} - ${{ stock.price }}</h1>
+
+        <hr>
+
+        <div id="stock-details" class="p-mb-4">
+            <p-table [value]="objectPropertyNames">
+                <ng-template pTemplate="body" let-objectProperty>
+                    <tr>
+                        <td class="p-text-right"><strong>{{ objectProperty.title }}</strong></td>
+                        <td>
+                            {{ stock[objectProperty.propertyName] }}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <div id="add-comment-section">
+            <div class="p-fluid p-formgrid p-grid p-ai-center">
+                <div class="p-field p-col-10">
+                    <textarea 
+                        pInputTextarea 
+                        [(ngModel)]="commentContent"
+                        [rows]="2" 
+                        [autoResize]="true">
+                    </textarea>
+                </div>
+                <div class="p-field p-col-2">
+                    <button 
+                        pButton 
+                        pRipple 
+                        type="button"
+                        label="Comment"
+                        class="p-button-primary"
+                        (click)="addComment()">
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="stock" id="comment-list-section" class="p-mt-4">
+            <div class="comment-wrapper" *ngFor="let comment of stock.comments">
+                <p-card [style]="{'margin-bottom': '2em', 'box-shadow': '1px 1px 5px white', 'padding': '1em 1em 0 1em'}">
+                    <ng-template pTemplate="header">
+                        <p-avatar icon="pi pi-user" styleClass="p-mr-2" shape="circle"></p-avatar>
+                        {{ comment.createdBy }}
+                    </ng-template>
+                    <p>
+                        {{ comment.commentContent }}
+                    </p>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>

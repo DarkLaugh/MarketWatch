@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketWatch.WebUI.Controllers
 {
+    [Route("api/stocks")]
     [Authorize]
     public class StockController : BaseController
     {
